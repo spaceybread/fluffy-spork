@@ -1,14 +1,11 @@
 import os
-from dotenv import load_dotenv
 import time
 import discord
 from discord.ext import commands
 from discord import app_commands
+from tokens import discordToken
 
 from cli_tools import cowsayCLI, figletCLI, pmatrixCLI
-
-load_dotenv()
-discordToken = os.getenv("DISCORD_TOKEN")
 
 intents = discord.Intents.all()
 
@@ -21,6 +18,7 @@ class MyClient(discord.Client):
         await self.tree.sync()
 
 client = MyClient()
+client.setup_hook()
 
 @client.event
 async def on_ready():
@@ -45,10 +43,13 @@ async def figlet(interaction: discord.Interaction, channel: discord.TextChannel,
 @client.tree.command(name="pmatrix", description="Display matrix rain effect")
 @app_commands.describe(width="Width of display", height="Height of display", frames="The number of frames to display")
 async def matrix(interaction: discord.Interaction, width: int, height: int, frames: int):
-    matrix_frames = pmatrixCLI(width, height, frames)
-    await interaction.response.send_message(matrix_frames[0])
-    for i in range(1, frames):
-        await interaction.edit_original_response(content=matrix_frames[i])
-        time.sleep(0.2)
+    try:
+        matrix_frames = pmatrixCLI(width, height, frames)
+        await interaction.response.send_message(matrix_frames[0])
+        for i in range(1, frames):
+            await interaction.edit_original_response(content=matrix_frames[i])
+            time.sleep(0.2)
+    except:
+        pass
         
 client.run(discordToken)
