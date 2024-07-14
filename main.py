@@ -1,9 +1,16 @@
-import discord
+import os
+from dotenv import load_dotenv
+import time
 import discord
 from discord.ext import commands
 from discord import app_commands
-from tokens import discordToken
-from impls import *
+
+from cli_tools import cowsayCLI, figletCLI
+
+load_dotenv()
+discordToken = os.getenv("DISCORD_TOKEN")
+
+intents = discord.Intents.all()
 
 class MyClient(discord.Client):
     def __init__(self):
@@ -13,15 +20,11 @@ class MyClient(discord.Client):
     async def setup_hook(self):
         await self.tree.sync()
 
-intents = discord.Intents.all()
-bot = commands.Bot(command_prefix="", intents=intents)
-
 client = MyClient()
 
 @client.event
 async def on_ready():
     print(f"OogaBooga")
-    
 
 @client.tree.command(name="cowsay", description="Send a cow message to a specified channel")
 @app_commands.describe(channel="The channel to send the message to", message="The message to send")
