@@ -27,4 +27,21 @@
             ||----w |
             ||     ||
 ```
+
+## pmatrix
+-> to use ```/pmatrix <width> <height> <frames>```
+
+"60 width, 10 height, and 10 frames" with pmatrix:
+```
+ G  y b         J    F  wq        s         P  c g  s       
+ s  l           g    y  uk  g   K c      twwy  PwZ  x     g 
+ t  y n  a      Sd   A  bG  h   e f      epiL  YwD  E     s 
+ S  n y  d      Xl   F  Ou  e   U C      VSfS  uBf  X     f 
+ j  j m  v      Xu   H  lU  o   z G      rgbzd  zW  d     P 
+ z                              N            r              
+ N                                           q              
+ N                  Q                        l              
+                    r                        z              
+                    j                                       
+```
  
