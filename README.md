@@ -1,8 +1,8 @@
 ## figlet
--> to use ``` /figlet <channel name> <message>```
+-> to use ```/figlet <channel name> <message>```
 
 ## cowsay
--> to use ``` /cowsay <channel name> <message>```
+-> to use ```/cowsay <channel name> <message>```
 
 
  
