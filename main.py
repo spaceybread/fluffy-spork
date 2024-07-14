@@ -50,6 +50,7 @@ async def matrix(interaction: discord.Interaction, width: int, height: int, fram
             await interaction.edit_original_response(content=matrix_frames[i])
             time.sleep(0.2)
     except:
+        print("someone's passing too much text for pmatrix")
         pass
         
 client.run(discordToken)
